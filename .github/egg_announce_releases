@@ -1,0 +1,16 @@
+name: Notify Slack egg-announce on new release
+
+on:
+  release:
+    types:
+      - released
+
+jobs:
+  notify_slack:
+    runs-on: ubuntu-latest
+    name: Notify Slack egg-announce on new release
+    steps:
+      - name: Notify Slack egg-announce on new release
+        uses: instantish/notify-slack-on-release@1.0.0
+        with:
+          slack_webhook_url: ${{ secrets.EGG_ANNOUNCE_WEBHOOK_URL }}
